@@ -4,6 +4,8 @@
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-accent-text: var(--accent-text);
+  --color-highlight: var(--highlight);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
@@ -11,25 +13,29 @@
   --font-code: "NeoDunggeunmo Code", var(--font-google-sans-code), monospace;
 }
 
-/* Light theme values */
+/* Light theme values — A 허니 / astral */
 :root,
 [data-theme="light"] {
-  --background: #fdfdfd;
-  --foreground: #282728;
-  --accent: #006cac;
-  --accent-foreground: #ffffff;
-  --muted: #e6e6e6;
-  --muted-foreground: #6b7280;
-  --border: #ece9e9;
+  --background: #f4f2f8;
+  --foreground: #2f2b3d;
+  --accent: #c79a3e;
+  --accent-foreground: #2f2b3d;
+  --accent-text: #6f5da8;
+  --highlight: #e6cf86;
+  --muted: #e8e4f1;
+  --muted-foreground: #6b6580;
+  --border: #e2dcee;
 }
 
-/* Dark theme values */
+/* Dark theme values — A 허니 / astral */
 [data-theme="dark"] {
-  --background: #212737;
-  --foreground: #eaedf3;
-  --accent: #ff6b01;
-  --accent-foreground: #ffffff;
-  --muted: #343f60;
-  --muted-foreground: #afb9ca;
-  --border: #ab4b08;
+  --background: #1c1930;
+  --foreground: #dcd7e6;
+  --accent: #e3c578;
+  --accent-foreground: #1c1930;
+  --accent-text: #9f8bea;
+  --highlight: #7d6224;
+  --muted: #2a2640;
+  --muted-foreground: #8e88a4;
+  --border: #34304a;
 }

@@ -17,11 +17,11 @@
     h4,
     h5,
     h6 {
-      @apply text-foreground mb-3 mix-blend-multiply dark:mix-blend-screen;
+      @apply text-foreground mb-3 mix-blend-multiply dark:mix-blend-normal;
 
-      /* 강조색 형광펜: 블렌드 모드로 쨍하게 (라이트=multiply, 다크=screen 발광) */
+      /* 형광펜: 라이트=multiply 마커, 다크=딥 앰버 블록(--highlight) 위 밝은 글자 */
       display: inline-block;
-      background-image: linear-gradient(transparent 10%, var(--accent) 10%);
+      background-image: linear-gradient(transparent 10%, var(--highlight) 10%);
     }
 
     th {
@@ -39,7 +39,7 @@
     }
 
     a {
-      @apply text-foreground hover:text-accent wrap-break-word decoration-dashed underline-offset-4 focus-visible:no-underline;
+      @apply text-foreground hover:text-accent-text wrap-break-word decoration-dashed underline-offset-4 focus-visible:no-underline;
     }
 
     ul {
