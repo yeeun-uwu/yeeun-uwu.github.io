@@ -5,16 +5,27 @@
   .app-prose {
     @apply prose;
 
-    h1,
-    h2,
-    h3,
-    h4,
-    th {
-      @apply text-foreground mb-3;
+    h1 {
+      @apply text-foreground font-bold mb-3 underline decoration-accent decoration-2 underline-offset-4;
     }
 
-    h3 {
-      @apply italic;
+    h2 {
+      @apply text-foreground font-bold mb-3;
+    }
+
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply text-foreground mb-3 mix-blend-multiply dark:mix-blend-screen;
+
+      /* 강조색 형광펜: 블렌드 모드로 쨍하게 (라이트=multiply, 다크=screen 발광) */
+      display: inline-block;
+      background-image: linear-gradient(transparent 10%, var(--accent) 10%);
+    }
+
+    th {
+      @apply text-foreground mb-3;
     }
 
     p,
@@ -63,7 +74,7 @@
     }
 
     code {
-      @apply bg-muted/75 text-foreground rounded p-1 wrap-break-word before:content-none after:content-none;
+      @apply bg-muted/75 text-foreground rounded p-1 font-normal wrap-break-word before:content-none after:content-none;
     }
 
     .astro-code code {
@@ -85,6 +96,11 @@
     pre {
       @apply focus-visible:outline-accent focus-visible:border-transparent focus-visible:outline-2 focus-visible:outline-dashed;
     }
+  }
+
+  /* ===== 본문 폰트: 코드만 Neo둥근모 Code, 나머지는 Galmuri(상속) ===== */
+  .app-prose :where(pre, code, kbd, samp) {
+    font-family: var(--font-code);
   }
 
   /* ===== Code Blocks & Syntax Highlighting ===== */

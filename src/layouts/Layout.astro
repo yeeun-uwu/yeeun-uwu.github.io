@@ -50,6 +50,17 @@ const rssHref = getRelativeLocaleUrl(
       preload={[{ subset: "latin", weight: 400, style: "normal" }]}
     />
 
+    <!-- Webfonts (CDN): Galmuri = UI·본문 전체, NeoDunggeunmo Code = 코드 -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/galmuri@2.40.3/dist/galmuri.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.601/neodgm_code/style.css"
+    />
+
     <!-- Primary meta -->
     <title>{title}</title>
     <meta name="title" content={title} />
