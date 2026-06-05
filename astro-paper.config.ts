@@ -30,7 +30,9 @@ export default defineAstroPaperConfig({
     search: "pagefind",
   },
   socials: [
-    { name: "github", url: "https://github.com/yeeun-uwu" },
+    { name: "github",   url: "https://github.com/yeeun-uwu" },
+    { name: "linkedin", url: "https://www.linkedin.com/in/your-handle/" }, // TODO: 본인 LinkedIn으로 교체
+    { name: "mail",     url: "mailto:your-email@example.com" },            // TODO: 본인 이메일로 교체
   ],
   shareLinks: [
     { name: "whatsapp", url: "https://wa.me/?text=" },
