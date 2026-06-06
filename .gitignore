@@ -34,3 +34,6 @@ compose.override.yaml
 
 # superpowers brainstorm scratch (visual companion)
 .superpowers/
+
+# claude code local state
+.claude/

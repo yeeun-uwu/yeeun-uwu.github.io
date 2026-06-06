@@ -92,6 +92,27 @@ interface ShareLink {
   linkTitle?: string;
 }
 
+interface GiscusConfig {
+  /** Enable giscus comments on post detail pages. Defaults to false. */
+  enabled?: boolean;
+  /** GitHub repository in "owner/repo" form. */
+  repo?: string;
+  /** Repository ID from giscus.app. */
+  repoId?: string;
+  /** Discussion category name from giscus.app. */
+  category?: string;
+  /** Discussion category ID from giscus.app. */
+  categoryId?: string;
+  /** giscus discussion mapping. Defaults to "pathname". */
+  mapping?: string;
+  /** giscus UI language. Defaults to "en". */
+  lang?: string;
+  /** giscus theme used in light mode. Defaults to "light". */
+  lightTheme?: string;
+  /** giscus theme used in dark mode. Defaults to "dark". */
+  darkTheme?: string;
+}
+
 interface AstroPaperConfig {
   site: SiteConfig;
   posts?: PostsConfig;
@@ -100,6 +121,8 @@ interface AstroPaperConfig {
   socials?: SocialLink[];
   /** Share links shown on post detail pages */
   shareLinks?: ShareLink[];
+  /** giscus comments configuration (GitHub Discussions based) */
+  giscus?: GiscusConfig;
 }
 
 type ResolvedSiteConfig = Required<
@@ -123,6 +146,7 @@ export interface ResolvedAstroPaperConfig {
   features: Required<FeaturesConfig>;
   socials: SocialLink[];
   shareLinks: ShareLink[];
+  giscus: Required<GiscusConfig>;
 }
 
 /**

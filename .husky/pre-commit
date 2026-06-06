@@ -1,0 +1,39 @@
+#!/usr/bin/env sh
+# 발행된(draft: false) 글이 수정되면 frontmatter의 modDatetime을 현재 UTC로 자동 갱신한다.
+# - 대상: 스테이징된 src/content/posts/ 아래의 수정된(.md/.mdx) 파일
+# - modDatetime 키가 있으면 값 갱신, 없으면 pubDatetime 아래에 추가
+# (Windows에서는 Git for Windows의 sh로 실행됨)
+
+now=$(date -u "+%Y-%m-%dT%H:%M:%SZ")
+
+git diff --cached --name-only --diff-filter=M -- src/content/posts | while read -r file; do
+  case "$file" in
+    *.md | *.mdx) ;;
+    *) continue ;;
+  esac
+  [ -f "$file" ] || continue
+
+  # frontmatter(첫 --- 블록)에서 draft 값을 읽는다.
+  draft=$(awk '
+    /^---[[:space:]]*$/ { c++; next }
+    c==1 && /^draft:/ { v=$0; sub(/^draft:[[:space:]]*/,"",v); print v; exit }
+  ' "$file")
+
+  [ "$draft" = "false" ] || continue
+
+  tmp=$(mktemp)
+  if grep -qE '^modDatetime:' "$file"; then
+    awk -v now="$now" '
+      !done && /^modDatetime:/ { print "modDatetime: " now; done=1; next }
+      { print }
+    ' "$file" >"$tmp"
+  else
+    awk -v now="$now" '
+      { print }
+      !done && /^pubDatetime:/ { print "modDatetime: " now; done=1 }
+    ' "$file" >"$tmp"
+  fi
+  mv "$tmp" "$file"
+  git add "$file"
+  echo "pre-commit: modDatetime -> $now  ($file)"
+done

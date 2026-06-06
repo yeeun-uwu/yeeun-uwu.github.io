@@ -30,6 +30,11 @@ pnpm build    # 프로덕션 빌드 + Pagefind 검색 색인
 
 `main` 브랜치에 push하면 GitHub Actions가 자동으로 빌드·배포합니다.
 
+## favicon 교체
+
+현재 favicon은 기본 Astro 로고입니다. 바꾸려면 `public/favicon.svg`를 덮어쓰고,
+필요하면 `public/favicon.ico`도 추가하세요. (`src/layouts/Layout.astro`가 두 파일을 모두 참조합니다.)
+
 ---
 
 테마 사용법 참고 문서는 `docs/` 폴더에 보관되어 있습니다.

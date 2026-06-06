@@ -35,11 +35,24 @@ export default defineAstroPaperConfig({
     { name: "mail",     url: "mailto:yesilver@ewha.ac.kr" },
   ],
   shareLinks: [
-    { name: "whatsapp", url: "https://wa.me/?text=" },
-    { name: "facebook", url: "https://www.facebook.com/sharer.php?u=" },
     { name: "x",        url: "https://x.com/intent/post?url=" },
     { name: "telegram", url: "https://t.me/share/url?url=" },
-    { name: "pinterest", url: "https://pinterest.com/pin/create/button/?url=" },
     { name: "mail",     url: "mailto:?subject=See%20this%20post&body=" },
   ],
+  // 댓글(giscus): GitHub Discussions 기반. 활성화 방법
+  //  1) repo를 public으로 두고, https://github.com/apps/giscus 설치
+  //  2) repo Settings > Features > Discussions 켜기
+  //  3) https://giscus.app 에서 repo 입력 → repoId / category / categoryId 발급
+  //  4) 아래 값을 채우고 enabled를 true로 변경
+  giscus: {
+    enabled: false,
+    repo: "yeeun-uwu/yeeun-uwu.github.io",
+    repoId: "",
+    category: "Announcements",
+    categoryId: "",
+    mapping: "pathname",
+    lang: "ko",
+    lightTheme: "light",
+    darkTheme: "dark",
+  },
 });

@@ -11,6 +11,7 @@ import { slugifyStr } from "@/utils/slugify";
 import { toTransitionName } from "@/utils/toTransitionName";
 import EditPost from "./_components/EditPost.astro";
 import ShareLinks from "./_components/ShareLinks.astro";
+import Comments from "@/components/Comments.astro";
 import BackButton from "./_components/BackButton.astro";
 import BackToTopButton from "./_components/BackToTopButton.astro";
 import AdjacentPostNav from "./_components/AdjacentPostNav.astro";
@@ -113,7 +114,7 @@ const ogImage = ogImageUrl
   >
     <h1
       style={{ viewTransitionName: toTransitionName(title) }}
-      class="text-accent-text inline-block text-2xl font-bold underline decoration-accent decoration-2 underline-offset-4 sm:text-3xl"
+      class="text-accent-text decoration-accent inline-block text-2xl font-bold underline decoration-2 underline-offset-4 sm:text-3xl"
     >
       {title}
     </h1>
@@ -156,6 +157,8 @@ const ogImage = ogImageUrl
     <ShareLinks />
 
     <hr class="my-8 border-dashed" />
+
+    <Comments />
 
     <AdjacentPostNav {prevPost} {nextPost} />
   </main>

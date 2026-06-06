@@ -1,0 +1,86 @@
+---
+/**
+ * giscus 댓글 (GitHub Discussions 기반).
+ *
+ * 설정은 astro-paper.config.ts 의 `giscus` 블록에서 한다.
+ * enabled가 true이고 repo/repoId/category/categoryId가 모두 채워졌을 때만 컨테이너가 렌더되며,
+ * 그때만 아래 스크립트가 동작한다(미설정 시 no-op).
+ * React 의존성 없이 바닐라 스크립트로 라이트/다크 테마를 동기화한다.
+ */
+import config from "@/config";
+
+const g = config.giscus;
+const isConfigured = Boolean(
+  g.enabled && g.repo && g.repoId && g.category && g.categoryId
+);
+---
+
+{
+  isConfigured && (
+    <section
+      id="giscus-comments"
+      class="mt-8"
+      data-repo={g.repo}
+      data-repo-id={g.repoId}
+      data-category={g.category}
+      data-category-id={g.categoryId}
+      data-mapping={g.mapping}
+      data-lang={g.lang}
+      data-light-theme={g.lightTheme}
+      data-dark-theme={g.darkTheme}
+    />
+  )
+}
+
+<script is:inline data-astro-rerun>
+  (function () {
+    const el = document.getElementById("giscus-comments");
+    if (!el) return;
+
+    function currentTheme() {
+      const isDark =
+        document.documentElement.getAttribute("data-theme") === "dark";
+      return isDark ? el.dataset.darkTheme : el.dataset.lightTheme;
+    }
+
+    // 네비게이션마다 giscus 스크립트를 새로 주입한다.
+    el.innerHTML = "";
+    const s = document.createElement("script");
+    s.src = "https://giscus.app/client.js";
+    s.setAttribute("data-repo", el.dataset.repo);
+    s.setAttribute("data-repo-id", el.dataset.repoId);
+    s.setAttribute("data-category", el.dataset.category);
+    s.setAttribute("data-category-id", el.dataset.categoryId);
+    s.setAttribute("data-mapping", el.dataset.mapping);
+    s.setAttribute("data-strict", "0");
+    s.setAttribute("data-reactions-enabled", "1");
+    s.setAttribute("data-emit-metadata", "0");
+    s.setAttribute("data-input-position", "bottom");
+    s.setAttribute("data-theme", currentTheme());
+    s.setAttribute("data-lang", el.dataset.lang);
+    s.setAttribute("data-loading", "lazy");
+    s.crossOrigin = "anonymous";
+    s.async = true;
+    el.appendChild(s);
+
+    // 사이트 테마 토글 시 giscus iframe에 테마를 전달한다.
+    function sendTheme() {
+      const frame = document.querySelector("iframe.giscus-frame");
+      if (!frame) return;
+      frame.contentWindow.postMessage(
+        { giscus: { setConfig: { theme: currentTheme() } } },
+        "https://giscus.app"
+      );
+    }
+
+    if (window.__giscusThemeObserver) {
+      window.__giscusThemeObserver.disconnect();
+    }
+    const observer = new MutationObserver(() => sendTheme());
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+    window.__giscusThemeObserver = observer;
+  })();
+</script>

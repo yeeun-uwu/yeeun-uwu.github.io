@@ -36,6 +36,17 @@ const config: ResolvedAstroPaperConfig = {
   },
   socials: userConfig.socials ?? [],
   shareLinks: userConfig.shareLinks ?? [],
+  giscus: {
+    enabled: userConfig.giscus?.enabled ?? false,
+    repo: userConfig.giscus?.repo ?? "",
+    repoId: userConfig.giscus?.repoId ?? "",
+    category: userConfig.giscus?.category ?? "",
+    categoryId: userConfig.giscus?.categoryId ?? "",
+    mapping: userConfig.giscus?.mapping ?? "pathname",
+    lang: userConfig.giscus?.lang ?? "en",
+    lightTheme: userConfig.giscus?.lightTheme ?? "light",
+    darkTheme: userConfig.giscus?.darkTheme ?? "dark",
+  },
 };
 
 export default config;
