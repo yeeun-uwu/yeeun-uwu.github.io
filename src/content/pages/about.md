@@ -5,7 +5,7 @@ description: "yeeun와 이 블로그에 대한 소개"
 
 <!-- placeholder: 자유롭게 수정하세요 (src/content/pages/about.md) -->
 
-안녕하세요, **yeeun**입니다. 👋
+안녕하세요, **yeeun**입니다.
 
 개발하면서 배우고 정리한 것들을 이 블로그에 기록하고 있어요.
 

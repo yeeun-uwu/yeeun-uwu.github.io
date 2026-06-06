@@ -2,7 +2,7 @@
 
 [Astro](https://astro.build) + [AstroPaper](https://github.com/satnaing/astro-paper) 테마로 만든 기술 블로그입니다.
 
-🔗 https://yeeun-uwu.github.io
+https://yeeun-uwu.github.io
 
 ## 글 작성
 
