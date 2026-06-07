@@ -1,0 +1,135 @@
+/*
+ * giscus custom theme — Astral 허니 (light)
+ *
+ * giscus 댓글 iframe 내부(GitHub Primer 구조)를 사이트 "Astral 허니" 라이트 팔레트와
+ * 맞추기 위한 커스텀 테마다. giscus 공식 light 테마를 베이스로, 표면/텍스트/링크/
+ * 테두리/버튼 토큰만 사이트 색(src/styles/theme.css)으로 덮어썼다("Astral" 주석 표시).
+ * 코드 하이라이트(prettylights-syntax-*), success/attention/danger, 로더
+ * 이미지는 가독성을 위해 GitHub 기본값을 유지한다.
+ *
+ * 호스팅: public/ → https://yeeun-uwu.github.io/giscus/astral-light.css
+ * 참조:   astro-paper.config.ts 의 giscus.lightTheme
+ * 기반:   https://giscus.app/themes/light.css (MIT, (c) 2018 GitHub Inc.)
+ */
+main {
+  /* 코드 하이라이트 — GitHub light 유지 */
+  --color-prettylights-syntax-comment: #6e7781;
+  --color-prettylights-syntax-constant: #0550ae;
+  --color-prettylights-syntax-entity: #8250df;
+  --color-prettylights-syntax-storage-modifier-import: #24292f;
+  --color-prettylights-syntax-entity-tag: #116329;
+  --color-prettylights-syntax-keyword: #cf222e;
+  --color-prettylights-syntax-string: #0a3069;
+  --color-prettylights-syntax-variable: #953800;
+  --color-prettylights-syntax-brackethighlighter-unmatched: #82071e;
+  --color-prettylights-syntax-invalid-illegal-text: #f6f8fa;
+  --color-prettylights-syntax-invalid-illegal-bg: #82071e;
+  --color-prettylights-syntax-carriage-return-text: #f6f8fa;
+  --color-prettylights-syntax-carriage-return-bg: #cf222e;
+  --color-prettylights-syntax-string-regexp: #116329;
+  --color-prettylights-syntax-markup-list: #3b2300;
+  --color-prettylights-syntax-markup-heading: #0550ae;
+  --color-prettylights-syntax-markup-italic: #24292f;
+  --color-prettylights-syntax-markup-bold: #24292f;
+  --color-prettylights-syntax-markup-deleted-text: #82071e;
+  --color-prettylights-syntax-markup-deleted-bg: #ffebe9;
+  --color-prettylights-syntax-markup-inserted-text: #116329;
+  --color-prettylights-syntax-markup-inserted-bg: #dafbe1;
+  --color-prettylights-syntax-markup-changed-text: #953800;
+  --color-prettylights-syntax-markup-changed-bg: #ffd8b5;
+  --color-prettylights-syntax-markup-ignored-text: #eaeef2;
+  --color-prettylights-syntax-markup-ignored-bg: #0550ae;
+  --color-prettylights-syntax-meta-diff-range: #8250df;
+  --color-prettylights-syntax-brackethighlighter-angle: #57606a;
+  --color-prettylights-syntax-sublimelinter-gutter-mark: #8c959f;
+  --color-prettylights-syntax-constant-other-reference-link: #0a3069;
+
+  /* 기본 버튼 */
+  --color-btn-text: #2f2b3d; /* Astral: foreground */
+  --color-btn-bg: #e8e4f1; /* Astral: muted */
+  --color-btn-border: #e2dcee; /* Astral: border */
+  --color-btn-shadow: 0 1px 0 #1f23280a;
+  --color-btn-inset-shadow: inset 0 1px 0 #ffffff40;
+  --color-btn-hover-bg: #ded8ec; /* Astral */
+  --color-btn-hover-border: #d2cae4; /* Astral */
+  --color-btn-active-bg: #d4cce6; /* Astral */
+  --color-btn-active-border: #c8bfdd; /* Astral */
+  --color-btn-selected-bg: #d4cce6; /* Astral */
+
+  /* Primary(댓글 등록) 버튼 — 골드 accent */
+  --color-btn-primary-text: #2f2b3d; /* Astral: accent-foreground */
+  --color-btn-primary-bg: #c79a3e; /* Astral: accent */
+  --color-btn-primary-border: #b88c32; /* Astral */
+  --color-btn-primary-shadow: 0 1px 0 #1f23281a;
+  --color-btn-primary-inset-shadow: inset 0 1px 0 #ffffff08;
+  --color-btn-primary-hover-bg: #b88c32; /* Astral */
+  --color-btn-primary-hover-border: #a87f2c; /* Astral */
+  --color-btn-primary-selected-bg: #a87f2c; /* Astral */
+  --color-btn-primary-selected-shadow: inset 0 1px 0 #002d1133;
+  --color-btn-primary-disabled-text: rgba(47, 43, 61, 0.5); /* Astral */
+  --color-btn-primary-disabled-bg: #e6cf86; /* Astral: highlight */
+  --color-btn-primary-disabled-border: #1f232826;
+
+  /* 액션 리스트 / 세그먼트 컨트롤 */
+  --color-action-list-item-default-hover-bg: rgba(
+    111,
+    93,
+    168,
+    0.12
+  ); /* Astral */
+  --color-segmented-control-bg: #e8e4f1; /* Astral: muted */
+  --color-segmented-control-button-bg: #f4f2f8; /* Astral: background */
+  --color-segmented-control-button-selected-border: #c8bfdd; /* Astral */
+
+  /* 텍스트 */
+  --color-fg-default: #2f2b3d; /* Astral: foreground */
+  --color-fg-muted: #6b6580; /* Astral: muted-foreground */
+  --color-fg-subtle: #8a849c; /* Astral */
+
+  /* 표면 */
+  --color-canvas-default: #f4f2f8; /* Astral: background */
+  --color-canvas-overlay: #ffffff; /* Astral */
+  --color-canvas-inset: #e8e4f1; /* Astral: muted */
+  --color-canvas-subtle: #e8e4f1; /* Astral: muted */
+
+  /* 테두리 */
+  --color-border-default: #e2dcee; /* Astral: border */
+  --color-border-muted: #ece8f4; /* Astral */
+  --color-neutral-muted: rgba(
+    111,
+    93,
+    168,
+    0.12
+  ); /* Astral: 인라인코드/리액션 바탕 */
+
+  /* 링크/강조 — 보라(accent-text) */
+  --color-accent-fg: #6f5da8; /* Astral: accent-text */
+  --color-accent-emphasis: #6f5da8; /* Astral */
+  --color-accent-muted: rgba(111, 93, 168, 0.4); /* Astral */
+  --color-accent-subtle: rgba(111, 93, 168, 0.12); /* Astral */
+
+  /* semantic — GitHub light 유지 */
+  --color-success-fg: #1a7f37;
+  --color-attention-fg: #9a6700;
+  --color-attention-muted: #d4a72c66;
+  --color-attention-subtle: #fff8c5;
+  --color-danger-fg: #d1242f;
+  --color-danger-muted: #ff818266;
+  --color-danger-subtle: #ffebe9;
+
+  --color-primer-shadow-inset: inset 0 1px 0 #d0d7de33;
+  --color-scale-gray-1: #eaeef2;
+  --color-scale-blue-1: #b6e3ff;
+
+  /*! Extensions from @primer/css/alerts/flash.scss */
+  --color-social-reaction-bg-hover: var(--color-scale-gray-1);
+  --color-social-reaction-bg-reacted-hover: var(--color-scale-blue-1);
+}
+
+main .pagination-loader-container {
+  background-image: url(https://github.com/images/modules/pulls/progressive-disclosure-line.svg);
+}
+
+main .gsc-loading-image {
+  background-image: url(https://github.githubassets.com/images/mona-loading-default.gif);
+}

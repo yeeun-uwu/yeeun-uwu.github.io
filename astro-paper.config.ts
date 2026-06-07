@@ -52,7 +52,7 @@ export default defineAstroPaperConfig({
     categoryId: "DIC_kwDOSxlcTc4C-rPU",
     mapping: "pathname",
     lang: "ko",
-    lightTheme: "light",
-    darkTheme: "dark",
+    lightTheme: "https://yeeun-uwu.github.io/giscus/astral-light.css",
+    darkTheme: "https://yeeun-uwu.github.io/giscus/astral-dark.css",
   },
 });
