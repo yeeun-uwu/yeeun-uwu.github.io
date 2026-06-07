@@ -16,3 +16,4 @@ description: "yeeun와 이 블로그에 대한 소개"
 ## 연락처
 
 - GitHub: [@yeeun-uwu](https://github.com/yeeun-uwu)
+- RSS: [피드 구독](/rss.xml)
