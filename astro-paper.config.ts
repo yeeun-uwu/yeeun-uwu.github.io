@@ -3,12 +3,12 @@ import { defineAstroPaperConfig } from "./src/types/config";
 export default defineAstroPaperConfig({
   site: {
     url: "https://yeeun-uwu.github.io/",
-    title: "yeeun's blog",
-    description: "개발하면서 배운 것들을 기록하는 기술 블로그",
-    author: "yeeun",
+    title: "Horoscape",
+    description: "A timescape of code and the in-between",
+    author: "Sasha",
     profile: "https://github.com/yeeun-uwu",
     ogImage: "default-og.jpg",
-    lang: "en",
+    lang: "ko",
     timezone: "Asia/Seoul",
     dir: "ltr",
     googleVerification: "Ekv_8CBgMCXsAFAsq1m1o3Q6PC48M-Y3V95rsmCd2vk",
@@ -45,11 +45,11 @@ export default defineAstroPaperConfig({
   //  3) https://giscus.app 에서 repo 입력 → repoId / category / categoryId 발급
   //  4) 아래 값을 채우고 enabled를 true로 변경
   giscus: {
-    enabled: false,
+    enabled: true,
     repo: "yeeun-uwu/yeeun-uwu.github.io",
-    repoId: "",
+    repoId: "R_kgDOSxlcTQ",
     category: "Announcements",
-    categoryId: "",
+    categoryId: "DIC_kwDOSxlcTc4C-rPU",
     mapping: "pathname",
     lang: "ko",
     lightTheme: "light",

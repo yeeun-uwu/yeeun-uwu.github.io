@@ -6,11 +6,10 @@ title: 블로그를 시작하며
 featured: true
 draft: false
 tags:
-  - blog
+  - others
 description: Astro와 AstroPaper 테마로 만든 기술 블로그의 첫 글입니다.
 ---
 
-안녕하세요. 개발하면서 배운 것들을 기록하기 위해 블로그를 열었습니다.
 
 이 블로그는 [Astro](https://astro.build/)와 [AstroPaper](https://github.com/satnaing/astro-paper) 테마로 만들었고, GitHub Pages로 배포됩니다.
 
