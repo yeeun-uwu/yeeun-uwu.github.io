@@ -14,7 +14,7 @@ export default defineAstroPaperConfig({
     googleVerification: "Ekv_8CBgMCXsAFAsq1m1o3Q6PC48M-Y3V95rsmCd2vk",
   },
   posts: {
-    perPage: 4,
+    perPage: 12,
     perIndex: 4,
     scheduledPostMargin: 15 * 60 * 1000,
   },
